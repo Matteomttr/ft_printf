@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prinft.h                                           :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamatter@student.42angouleme.fr            +#+  +:+       +#+        */
+/*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/31 13:57:56 by mamatter          #+#    #+#             */
-/*   Updated: 2026/10/31 13:58:26 by mamatter         ###   ########.fr       */
+/*   Created: 2026/11/01 13:40:55 by mamatter          #+#    #+#             */
+/*   Updated: 2026/11/01 13:40:55 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "../printf.h"
 
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
+}

@@ -1,18 +1,33 @@
-NAME= libft.a
+NAME= libftprintf.a
 CC= cc
 CFLAGS= -Wall -Werror -Wextra
 AR= ar
 ARFLAGS= rsc
-SRCS=	ft_isalpha.c \
+SRC_DIR= SRC
+OBJ_DIR= OBJ
+SRCS=	$(SRC_DIR)/ft_printf.c \
+		$(SRC_DIR)/ft_putchar_fd.c \
+		$(SRC_DIR)/ft_puthexa_fd.c \
+		$(SRC_DIR)/ft_putnbr_fd.c \
+		$(SRC_DIR)/ft_putstr_fd.c \
+		$(SRC_DIR)/ft_tolower.c \
+		$(SRC_DIR)/ft_toupper.c \
 
-OBJS= $(SRCS:.c=.o)
+OBJS=	$(OBJ_DIR)/ft_printf.o \
+		$(OBJ_DIR)/ft_putchar_fd.o \
+		$(OBJ_DIR)/ft_puthexa_fd.o \
+		$(OBJ_DIR)/ft_putnbr_fd.o \
+		$(OBJ_DIR)/ft_putstr_fd.o \
+		$(OBJ_DIR)/ft_tolower.o \
+		$(OBJ_DIR)/ft_toupper.o
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
