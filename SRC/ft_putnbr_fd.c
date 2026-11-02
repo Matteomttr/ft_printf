@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 12:24:22 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/01 12:24:22 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:23:33 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "../ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

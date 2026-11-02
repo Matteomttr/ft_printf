@@ -10,16 +10,16 @@ SRCS=	$(SRC_DIR)/ft_printf.c \
 		$(SRC_DIR)/ft_puthexa_fd.c \
 		$(SRC_DIR)/ft_putnbr_fd.c \
 		$(SRC_DIR)/ft_putstr_fd.c \
-		$(SRC_DIR)/ft_tolower.c \
-		$(SRC_DIR)/ft_toupper.c \
+		$(SRC_DIR)/ft_putptr_fd.c \
+		$(SRC_DIR)/ft_countargs.c \
 
 OBJS=	$(OBJ_DIR)/ft_printf.o \
 		$(OBJ_DIR)/ft_putchar_fd.o \
 		$(OBJ_DIR)/ft_puthexa_fd.o \
 		$(OBJ_DIR)/ft_putnbr_fd.o \
 		$(OBJ_DIR)/ft_putstr_fd.o \
-		$(OBJ_DIR)/ft_tolower.o \
-		$(OBJ_DIR)/ft_toupper.o
+		$(OBJ_DIR)/ft_putptr_fd.o \
+		$(OBJ_DIR)/ft_countargs.o \
 
 all: $(NAME)
 

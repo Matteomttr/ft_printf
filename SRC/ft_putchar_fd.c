@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 12:24:53 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/01 12:28:59 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:23:21 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "../ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

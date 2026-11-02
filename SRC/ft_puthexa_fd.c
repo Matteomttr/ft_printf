@@ -6,13 +6,13 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 13:29:42 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/01 13:29:43 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/02 11:23:29 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "../ft_printf.h"
 
-void	ft_puthexa_fd(unsigned int n, int fd, char *base)
+void	ft_puthexa_fd(unsigned long long n, int fd, char *base)
 {
 	if (fd < 0)
 		return ;

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 13:40:55 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/01 13:40:55 by mamatter         ###   ########.fr       */
+/*   Created: 2026/11/02 09:21:59 by mamatter          #+#    #+#             */
+/*   Updated: 2026/11/02 11:23:37 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "../ft_printf.h"
 
-int	ft_tolower(int c)
+void	ft_putptr_fd(void *ptr, int fd)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	if (fd < 0)
+		return ;
+	write(fd, "0x", 2);
+	ft_puthexa_fd((unsigned long long)(ptr), 1, "0123456789abcdef");
 }

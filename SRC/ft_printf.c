@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamatter@student.42angouleme.fr            +#+  +:+       +#+        */
+/*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 10:21:48 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/01 10:21:53 by mamatter         ###   ########.fr       */
+/*   Created: 2026/11/02 08:58:02 by mamatter          #+#    #+#             */
+/*   Updated: 2026/11/02 19:08:33 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "../ft_printf.h"
 
-static void	loop(const char *format, va_list args, int i)
+static void	printer(const char *format, va_list args, int i)
 {
 	if (format[i + 1] == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
 	else if (format[i + 1] == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (format[i + 1] == 'p')
-		return ;
+		ft_putptr_fd(va_arg(args, void *), 1);
 	else if (format[i + 1] == 'd')
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (format[i + 1] == 'i')
@@ -37,26 +37,33 @@ static void	loop(const char *format, va_list args, int i)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
+	va_list	args_count;
 	int		i;
+	int		count;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
+	va_copy(args_count, args);
 	i = 0;
+	count = ft_countargs(format, args_count);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			loop(format, args, i);
+			printer(format, args, i);
 			i++;
 		}
 		else
 			ft_putchar_fd(format[i], 1);
 		i++;
 	}
+	va_end(args_count);
 	va_end(args);
-	return (0);
+	return (count);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 int	main()
 {
@@ -69,6 +76,14 @@ int	main()
 	char			hexaU = 'Z';
 	void			*p = "c le pointeur";
 
-	ft_printf("coucou %c moi je m'apelle %s j'ai %d bientot %i ma copine a %u \n lower hexa de c : %x et upper hexa de a : %X \n c juste a 100%z \n  %p et %c \n", c, str, d, i, ui, hexaL, hexaU, p);
-	printf("coucou %c moi je m'apelle %s j'ai %d bientot %i ma copine a %u \n lower hexa de c : %x et upper hexa de a : %X \n c juste a 100%% \n %p\n", c, str, d, i, ui, hexaL, hexaU, p);
-}
+	printf("\t%d\n", ft_printf("NULL %s NULL", NULL));
+	printf("\t%d\n", printf("NULL %s NULL", NULL));
+
+    int nombre = 42;
+    int *adresse = &nombre;
+
+    printf("Taille de l'adresse '%p'(pointeur) : %zu octets\n", adresse, sizeof(adresse));
+    printf("Taille de la valeur pointee '%d' : %zu octets\n", *adresse, sizeof(*adresse));
+
+    return 0;
+}*/
