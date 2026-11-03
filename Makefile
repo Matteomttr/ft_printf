@@ -12,6 +12,8 @@ SRCS=	$(SRC_DIR)/ft_printf.c \
 		$(SRC_DIR)/ft_putstr_fd.c \
 		$(SRC_DIR)/ft_putptr_fd.c \
 		$(SRC_DIR)/ft_countargs.c \
+		$(SRC_DIR)/ft_len.c \
+		$(SRC_DIR)/ft_putunbr_fd.c \
 
 OBJS=	$(OBJ_DIR)/ft_printf.o \
 		$(OBJ_DIR)/ft_putchar_fd.o \
@@ -20,6 +22,8 @@ OBJS=	$(OBJ_DIR)/ft_printf.o \
 		$(OBJ_DIR)/ft_putstr_fd.o \
 		$(OBJ_DIR)/ft_putptr_fd.o \
 		$(OBJ_DIR)/ft_countargs.o \
+		$(OBJ_DIR)/ft_len.o \
+		$(OBJ_DIR)/ft_putunbr_fd.o \
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 08:58:02 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/02 19:08:33 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/03 11:19:15 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	printer(const char *format, va_list args, int i)
 	else if (format[i + 1] == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (format[i + 1] == 'u')
-		ft_putnbr_fd(va_arg(args, unsigned int), 1);
+		ft_putunbr_fd(va_arg(args, unsigned int), 1);
 	else if (format[i + 1] == 'x')
 		ft_puthexa_fd(va_arg(args, unsigned int), 1, "0123456789abcdef");
 	else if (format[i + 1] == 'X')
@@ -46,7 +46,7 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	va_copy(args_count, args);
 	i = 0;
-	count = ft_countargs(format, args_count);
+	count = ft_countargs(format, &args_count);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -62,28 +62,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
-/*#include <stdio.h>
-
-int	main()
-{
-	char			c = 'c';
-	char			*str = "Matteo";
-	int				d = 17;
-	int				i = 18;
-	unsigned int	ui = 16;
-	char			hexaL = 'Z';
-	char			hexaU = 'Z';
-	void			*p = "c le pointeur";
-
-	printf("\t%d\n", ft_printf("NULL %s NULL", NULL));
-	printf("\t%d\n", printf("NULL %s NULL", NULL));
-
-    int nombre = 42;
-    int *adresse = &nombre;
-
-    printf("Taille de l'adresse '%p'(pointeur) : %zu octets\n", adresse, sizeof(adresse));
-    printf("Taille de la valeur pointee '%d' : %zu octets\n", *adresse, sizeof(*adresse));
-
-    return 0;
-}*/
