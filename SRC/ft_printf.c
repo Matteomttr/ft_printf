@@ -6,32 +6,32 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 08:58:02 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/03 11:19:15 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/03 11:38:57 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	printer(const char *format, va_list args, int i)
+static void	printer(const char *format, va_list args, int i, int fd)
 {
 	if (format[i + 1] == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+		ft_putchar_fd(va_arg(args, int), fd);
 	else if (format[i + 1] == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
+		ft_putstr_fd(va_arg(args, char *), fd);
 	else if (format[i + 1] == 'p')
-		ft_putptr_fd(va_arg(args, void *), 1);
+		ft_putptr_fd(va_arg(args, void *), fd);
 	else if (format[i + 1] == 'd')
-		ft_putnbr_fd(va_arg(args, int), 1);
+		ft_putnbr_fd(va_arg(args, int), fd);
 	else if (format[i + 1] == 'i')
-		ft_putnbr_fd(va_arg(args, int), 1);
+		ft_putnbr_fd(va_arg(args, int), fd);
 	else if (format[i + 1] == 'u')
-		ft_putunbr_fd(va_arg(args, unsigned int), 1);
+		ft_putunbr_fd(va_arg(args, unsigned int), fd);
 	else if (format[i + 1] == 'x')
-		ft_puthexa_fd(va_arg(args, unsigned int), 1, "0123456789abcdef");
+		ft_puthexa_fd(va_arg(args, unsigned int), fd, "0123456789abcdef");
 	else if (format[i + 1] == 'X')
-		ft_puthexa_fd(va_arg(args, unsigned int), 1, "0123456789ABCDEF");
+		ft_puthexa_fd(va_arg(args, unsigned int), fd, "0123456789ABCDEF");
 	else
-		ft_putchar_fd('%', 1);
+		ft_putchar_fd('%', fd);
 }
 
 int	ft_printf(const char *format, ...)
@@ -51,7 +51,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			printer(format, args, i);
+			printer(format, args, i, 1);
 			i++;
 		}
 		else
