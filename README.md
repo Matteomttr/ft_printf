@@ -6,7 +6,7 @@
 
 **ft_printf** is a re-implementation of the C standard library function `printf()`.
 The goal of the project is to learn how **variadic functions** work in C
-(`<stdarg.h>`) and to write clean, well-structured code.
+(`<stdarg.h>`).
 
 The project produces a library, `libftprintf.a`, which exposes one function:
 
