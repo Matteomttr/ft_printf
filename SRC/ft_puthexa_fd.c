@@ -6,17 +6,21 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 13:29:42 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/02 11:23:29 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/04 20:11:52 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_puthexa_fd(unsigned long long n, int fd, char *base)
+int	ft_puthexa_fd(unsigned long n, int fd, char *base)
 {
+	int	count;
+
 	if (fd < 0)
-		return ;
+		return (0);
+	count = 0;
 	if (n >= 16)
-		ft_puthexa_fd(n / 16, fd, base);
-	ft_putchar_fd(base[n % 16], fd);
+		count += ft_puthexa_fd(n / 16, fd, base);
+	count += ft_putchar_fd(base[n % 16], fd);
+	return (count);
 }

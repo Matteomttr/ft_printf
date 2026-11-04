@@ -6,33 +6,26 @@
 /*   By: mamatter <mamatter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 12:24:22 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/02 11:23:33 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/04 20:11:30 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	long	nb;
+	int		count;
+
 	if (fd < 0)
-		return ;
-	if (n == -2147483648)
+		return (0);
+	nb = n;
+	count = 0;
+	if (nb < 0)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		count += ft_putchar_fd('-', fd);
+		nb = -nb;
 	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n <= 9)
-	{
-		ft_putchar_fd(n + '0', fd);
-	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
+	count += ft_putunbr_fd(nb, fd);
+	return (count);
 }
