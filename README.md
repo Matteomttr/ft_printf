@@ -93,16 +93,6 @@ Special cases follow the behaviour of the original `printf()` on Linux:
 - `%p` with a `NULL` pointer prints `(nil)`, otherwise `0x` followed by the address;
 - `INT_MIN` is handled by converting to a wider type before negating, to avoid overflow.
 
-### Why this approach?
-
-- **No buffer**: direct `write` calls keep the code simple, and the subject
-  forbids reimplementing the original buffer management.
-- **One handler per conversion**: each function does one thing, which makes the
-  code readable and easy to test.
-- **Each function returns the number of bytes written**: the final return value is
-  computed without a second pass over the data.
-- **No dynamic allocation**: everything is written on the fly, so no memory leaks.
-
 ## Resources
 
 ### References
