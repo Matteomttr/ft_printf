@@ -6,12 +6,13 @@
 /*   By: mamatter <mamatter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 12:24:22 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/04 20:11:30 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/05 10:11:11 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+/* Writes an integer to a file descriptor. */
 int	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
