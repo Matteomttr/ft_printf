@@ -22,7 +22,7 @@
 # define HEX_UP "0123456789ABCDEF"
 
 /* Main function */
-int		ft_printf(const char *format, ...);
+int 	ft_printf(const char *format, ...) __attribute__ ((format (printf, 1, 2)));
 
 /* Utility functions */
 int		ft_putchar_fd(char c, int fd);
