@@ -20,8 +20,7 @@ SRCS=	$(SRC_DIR)/ft_printf.c \
 		$(SRC_DIR)/ft_putnbr_fd.c \
 		$(SRC_DIR)/ft_putstr_fd.c \
 		$(SRC_DIR)/ft_putptr_fd.c \
-		$(SRC_DIR)/ft_countargs.c \
-		$(SRC_DIR)/ft_len.c \
+		$(SRC_DIR)/ft_strlen.c \
 		$(SRC_DIR)/ft_putunbr_fd.c \
 
 # List of obj files
@@ -31,8 +30,7 @@ OBJS=	$(OBJ_DIR)/ft_printf.o \
 		$(OBJ_DIR)/ft_putnbr_fd.o \
 		$(OBJ_DIR)/ft_putstr_fd.o \
 		$(OBJ_DIR)/ft_putptr_fd.o \
-		$(OBJ_DIR)/ft_countargs.o \
-		$(OBJ_DIR)/ft_len.o \
+		$(OBJ_DIR)/ft_strlen.o \
 		$(OBJ_DIR)/ft_putunbr_fd.o \
 
 # Compile everything
